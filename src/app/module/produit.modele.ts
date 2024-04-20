@@ -1,0 +1,22 @@
+export  interface produits{
+  id:number;
+  description:string;
+  name:string;
+  photo:string;
+  curretPrice:number;
+  promotion:boolean;
+  selected:boolean;
+  available:boolean;
+  quantite:number;
+  _links:{
+    self:{
+      href:string
+    },
+    produit:{
+      href:string
+    },
+    categories:{
+      href:string
+    }
+  }
+}

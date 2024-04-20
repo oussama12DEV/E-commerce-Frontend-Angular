@@ -1,0 +1,36 @@
+
+
+<div class="panel panel-heading">
+  <div class="panel-heading">
+    Caddies
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Quantity</th><th>Prix</th>
+      </tr>
+      </thead>
+    <tbody>
+
+      <tr *ngFor="let pi of this.caddyservice.getcaddy()?.items?.values()">
+        <td>{{pi.produit.id}}</td>
+        <td>{{pi.produit.name}}</td>
+        <td>{{pi.quantity}}</td>
+        <td>{{pi.price}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="onremoveproduitfromcaddy()">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </td>
+         </tr>
+      <tr>
+        <td colspan="3">Total</td>
+        <td>{{caddyservice.gettotal()}}</td>
+         </tr>
+    </tbody>
+    </table>
+    <button class="btn btn-success" (click)="onNewOrder()">Commande</button>
+  </div>
+</div>
+

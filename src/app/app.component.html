@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active clikbal"><a (click)="getproduitselected()">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produits
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a class="clikbal" (click)="getproduitpromotion()">Promotion</a></li>
+          <li><a class="clikbal" (click)="getproduitdisponible()">Disponible</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="caddies">Caddies</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
+      <li>
+        <a>>
+          {{ caddyservice.getcaddy()?.name }} | {{ caddyservice.getcaddy()?.items?.size }}
+       </a>
+      </li>
+        <li>
+          <a (click)="logout()">
+            <span class="glyphicon glyphicon-log-out"></span>
+          </a>
+          </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="col-md-3">
+    <ul class="list-group" *ngIf="categorie">
+      <li  [ngClass]="currentcategorie==c?'active':''" (click)="getproduitcategorie(c)" class="list-group-item clikbal" *ngFor="let c of categorie._embedded.categories">
+      {{c.name}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <router-outlet>
+
+    </router-outlet>
+  </div>
+
+</div>
